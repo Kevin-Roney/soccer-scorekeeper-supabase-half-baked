@@ -19,7 +19,14 @@ The games are stored in the database using this data model:
 
 export async function createGame(game){
     // create a single new game in the games table using the above object
-    
+    const response = await client
+        .from('games')
+        .insert({
+            name1: someOption,
+            name2: someOption,
+            score1: someScore,
+            score2: someScore,
+        });
     return checkError(response);
 }
 

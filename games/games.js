@@ -65,9 +65,14 @@ teamTwoSubtractButton.addEventListener('click', () => {
 
 finishGameButton.addEventListener('click', async() => {
     // create a new game using the current game state
-    
+    const game = {
+        name1: name1,
+        name2: name2,
+        score1: score1,
+        score2: score2,
+    };
     // after creating this new game, re-fetch the games to get the updated state and display them (hint: call displayAllGames())
-            
+    createGame(game);        
     name1 = '';
     name2 = '';
     score1 = 0;
