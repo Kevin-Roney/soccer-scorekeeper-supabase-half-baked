@@ -10,10 +10,10 @@ The table name in supabase is `games`
 
 The games are stored in the database using this data model:
 {
-   name1: ,
-   name2: ,
-   score1: ,
-   score2: ,
+name1: ,
+name2: ,
+score1: ,
+score2: ,
 }
 */
 
@@ -21,18 +21,16 @@ export async function createGame(game){
     // create a single new game in the games table using the above object
     const response = await client
         .from('games')
-        .insert({
-            name1: someOption,
-            name2: someOption,
-            score1: someScore,
-            score2: someScore,
-        });
-    return checkError(response);
+        .insert(game);
+    //return checkError(response);
+    return response;
 }
 
 export async function getGames() {
     // select all games from the games table
-
+    const response = await client
+        .from('games')
+        .select('*');
     return checkError(response);    
 }
 
